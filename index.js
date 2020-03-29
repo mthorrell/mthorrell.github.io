@@ -85,7 +85,7 @@ async function find_distances(pets,img_emb){
 async function show_gray(x,canvas) {
   var result = await tf.browser.toPixels(x)
   var ctx = canvas.getContext('2d')
-  var idata = new ImageData(result,100,100)
+  var idata = new ImageData(result,20,20)
   
   ctx.putImageData(idata,0,0)
   return result
@@ -124,7 +124,7 @@ var img_sml = document.createElement("img")
 var img_hidden = document.createElement("img")
 var canvas = document.createElement("canvas")
 
-img_sml.width = 100
+img_sml.width = 20
 
 var input = document.getElementById("inputhere")
 input.addEventListener('change',function(){
@@ -150,10 +150,10 @@ async function run_program(){
   
   console.log("Converting to tensor of the right form")
   
-  canvas.width = 100
-  canvas.height = 100
+  canvas.width = 20
+  canvas.height = 20
   var ctx = canvas.getContext('2d')
-  ctx.drawImage(img_hidden, 0, 0, 100, 100);
+  ctx.drawImage(img_hidden, 0, 0, 20, 20);
   
   document.getElementById("loading_indicator").innerHTML = "Running!1"
   
@@ -175,7 +175,7 @@ async function run_program(){
   console.log(pets)
   
   console.log("reshaping input")
-  timg = timg.reshape([1,100,100,1])
+  timg = timg.reshape([1,20,20,1])
   
   document.getElementById("loading_indicator").innerHTML = "Running!4"
   
