@@ -1,0 +1,104 @@
+<html>
+  <head> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104717001-2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-104717001-2');
+    </script>
+
+    
+    <style>
+    *{
+      font-family: sans-serif;
+    }
+    tr{
+      padding: 15px;
+    }
+    div.centerColumn {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 5px;}
+      
+    div.rankingColumn {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 5px;}
+    img{
+      padding-top: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      vertical-align: middle;
+    }
+    
+    
+    
+    </style>
+  </head>
+
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    
+    <!-- Introduction -->
+    <div id="intro" class="centerColumn">
+      <center>
+        <font size=40> <b>
+          Face Ventura: Pet Detector
+        </b> </font>
+      </center>
+      <br>
+      Use Facial Recognition to find shelter pets that look like you!
+    </div>
+    
+    <br><br>
+    
+    <!-- Upload Section -->
+    <div id="input_div" class="centerColumn">
+      Upload your photo here:
+      <input id='inputhere' type='file' />
+      <br>
+      <div id="cvhere"></div>
+    </div>
+    
+    <br><br>
+    
+    
+    <!-- ranking piece -->
+    <div id="ranking" class="rankingColumn">
+      <div id='loading_indicator'>
+        Loading: <br> __ Pet Data <br> __ Facial Recognition Model
+      </div>
+      <br>
+      <div id='rtable'>
+        <center>
+          <table id='results'></table>
+        </center>
+      </div>
+    </div>
+  
+    <script type="text/javascript" src="index.js"></script>
+    
+    <br><br>
+    
+    <!-- disclaimer -->
+    
+    <div align="left" class="centerColumn">
+      <b>Disclaimer</b> The pet photos on this site are from pawschicago.org.
+      This website is not affiliated with pawschicago.org. Visit them if you
+      want to learn more about a pet you see!
+    </div>
+    
+    
+  </body>
+</html>
