@@ -139,7 +139,8 @@ document.getElementById('inputhere').onchange = function (e) {
       imageIsLoaded()
       
     },
-    { noRevoke: true} // Options
+    { noRevoke: true,
+      orientation: true} // Options
   )
   
 }
