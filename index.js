@@ -119,22 +119,30 @@ function tensor_grayscale(x) {
 }
 
 
+
 var div = document.getElementById("cvhere")
 var img_sml = document.createElement("img")
+
 var img_hidden = document.createElement("img")
 var canvas = document.createElement("canvas")
 
-img_sml.width = 20
-
-var input = document.getElementById("inputhere")
-input.addEventListener('change',function(){
-  img_sml.src = URL.createObjectURL(this.files[0]); // set src to blob url
-  div.appendChild(img_sml)
+document.getElementById('inputhere').onchange = function (e) {
+  loadImage(
+    e.target.files[0],
+    function (img) {
+      
+      img_sml.src = img.src//url
+      img_sml.width=100
+      img_hidden.src = img.src//url
+      
+      div.appendChild(img_sml)
+      imageIsLoaded()
+      
+    },
+    { noRevoke: true} // Options
+  )
   
-  img_hidden.src = URL.createObjectURL(this.files[0]);
-  img_hidden.onload = imageIsLoaded;
-  
-})
+}
 
 
 img_input = []
