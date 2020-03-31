@@ -126,24 +126,31 @@ var img_sml = document.createElement("img")
 var img_hidden = document.createElement("img")
 var canvas = document.createElement("canvas")
 
+img_hidden.onload = function(){
+  imageIsLoaded()
+}
+
 document.getElementById('inputhere').onchange = function (e) {
   loadImage(
     e.target.files[0],
     function (img) {
-      
-      img_sml.src = img.src//url
-      img_sml.width=100
-      img_hidden.src = img.src//url
-      
-      div.appendChild(img_sml)
-      imageIsLoaded()
-      
+      img.toBlob(function(blob) {
+        urlhere = URL.createObjectURL(blob)
+        img_sml.src = urlhere
+        img_sml.width=100
+        img_hidden.src = urlhere
+        div.appendChild(img_sml)
+      })
     },
     { noRevoke: true,
-      orientation: true} // Options
+      orientation: true
+    }
   )
   
 }
+
+
+
 
 
 img_input = []
