@@ -69,7 +69,7 @@ async function load_model() {
 }
 async function load_data(){
   var dat_array = []
-  await d3.csv("tf_pet_embedding.csv").then(function(data) {
+  await d3.csv("pet_embeddings.csv").then(function(data) {
     dat_array.push(data)
   });
   data_loaded = "&#9989;"
@@ -215,7 +215,8 @@ async function run_program(){
     pets_distances.push({
       dist:op[i],
       name:pets[i]['names'],
-      filename:pets[i]['filenames']
+      filename:pets[i]['filenames'],
+      pawsurl:pets[i]['links']
     })
   }
   pets_distances.sort(function(x,y){
@@ -244,6 +245,9 @@ async function run_program(){
                             + pets_distances[i]['name'] 
                             + "</font> </b> <br>"
                             + "Distance: " + pets_distances[i]['dist'].toFixed(2)
+                            + "<br>"
+                            + "<a href='"+ pets_distances[i]['pawsurl'] + "'>"
+                            + "PAWS link</a>"
                             + "</center>"
                           )
     
