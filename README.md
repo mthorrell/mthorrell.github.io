@@ -1,2 +1,3 @@
 # mthorrell.github.io
-Website showcasing github content.
+
+Go to [https://mthorrell.github.io/](https://mthorrell.github.io/).
